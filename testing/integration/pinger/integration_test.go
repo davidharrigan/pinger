@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"
 
-	pb "github.com/davidharrigan/integration-test/grpc/protos"
-	"github.com/davidharrigan/integration-test/testing/config"
+	pb "github.com/davidharrigan/pinger/grpc/protos"
+	"github.com/davidharrigan/pinger/testing/config"
 )
 
 func address() string {

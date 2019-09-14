@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/davidharrigan/integration-test/testing/config"
+	"github.com/davidharrigan/pinger/testing/config"
 )
 
 var integrationLocal = flag.Bool("integration-local", false, "spin up a local instance of pinger within the test")

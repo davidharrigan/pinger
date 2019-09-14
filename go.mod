@@ -1,4 +1,4 @@
-module github.com/davidharrigan/integration-test
+module github.com/davidharrigan/pinger
 
 go 1.13
 

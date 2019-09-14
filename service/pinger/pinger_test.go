@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	pb "github.com/davidharrigan/integration-test/grpc/protos"
+	pb "github.com/davidharrigan/pinger/grpc/protos"
 )
 
 func TestPing(t *testing.T) {

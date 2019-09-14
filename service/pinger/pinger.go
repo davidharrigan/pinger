@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	pb "github.com/davidharrigan/integration-test/grpc/protos"
+	pb "github.com/davidharrigan/pinger/grpc/protos"
 )
 
 // Pinger repesents our grpc service that can respond to a simple ping request

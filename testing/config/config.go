@@ -8,8 +8,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "github.com/davidharrigan/integration-test/grpc/protos"
-	"github.com/davidharrigan/integration-test/service/pinger"
+	pb "github.com/davidharrigan/pinger/grpc/protos"
+	"github.com/davidharrigan/pinger/service/pinger"
 )
 
 // ServerConfig stores info of grpc server
