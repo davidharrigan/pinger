@@ -9,14 +9,14 @@ import (
 	"github.com/davidharrigan/integration-test/testing/config"
 )
 
-var integration = flag.Bool("integration", false, "run integration tests")
+var integrationLocal = flag.Bool("integration-local", false, "run integration tests")
 var pingerAddress = flag.String("pinger-address", "localhost", "pinger address")
 var pingerPort = flag.Int("pinger-port", 50051, "pinger port")
 
 func TestMain(m *testing.M) {
 	flag.Parse()
 
-	if !*integration {
+	if *integrationLocal {
 		go func() {
 			s := config.Pinger()
 			defer s.Stop()

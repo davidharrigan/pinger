@@ -11,8 +11,8 @@ test:
 
 .PHONY: integration-local
 integration-local:
-	go test -tags integration -v ./testing/integration/...
+	go test -tags integration -v ./testing/integration/... -integration-local
 
 .PHONY: integration
 integration:
-	go test -tags integration -v ./testing/integration/... -integration
+	go test -tags integration -v ./testing/integration/...

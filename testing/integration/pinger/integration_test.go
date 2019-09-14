@@ -93,7 +93,9 @@ func TestPingerStream(t *testing.T) {
 
 			address := fmt.Sprintf("%s:%d", config.PingerConfig.Address, config.PingerConfig.Port)
 			conn, err := grpc.Dial(address, grpc.WithInsecure())
-			assert.Nil(err)
+			if !assert.Nil(err) {
+				return
+			}
 			defer conn.Close()
 
 			c := pb.NewPingerClient(conn)
@@ -101,7 +103,9 @@ func TestPingerStream(t *testing.T) {
 			defer cancel()
 
 			stream, err := c.PingStream(ctx, tc.in)
-			assert.Nil(err)
+			if !assert.Nil(err) {
+				return
+			}
 
 			for i := 0; i < tc.expected.count; i++ {
 				out, err := stream.Recv()
