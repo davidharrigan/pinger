@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ping;
+
+option go_package = "protos";
+
+service Pinger {
+    rpc Ping(PingRequest) returns (PingResponse) {}
+    rpc PingStream (PingRequest) returns (stream PingResponse) {}
+}
+
+message PingRequest {
+    int32 count = 1;
+}
+
+
+message PingResponse {
+    bytes payload = 1;
+}
