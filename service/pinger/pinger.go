@@ -12,7 +12,7 @@ type Pinger struct{}
 
 // Ping repliese with single ping response
 func (s *Pinger) Ping(ctx context.Context, in *pb.PingRequest) (*pb.PingResponse, error) {
-	log.Printf("Received")
+	log.Println("received")
 	return &pb.PingResponse{
 		Payload: []byte(`pong`),
 	}, nil
@@ -20,5 +20,15 @@ func (s *Pinger) Ping(ctx context.Context, in *pb.PingRequest) (*pb.PingResponse
 
 // PingStream replies a stream of ping responses
 func (s *Pinger) PingStream(in *pb.PingRequest, stream pb.Pinger_PingStreamServer) error {
+	log.Println("received")
+	for i := 0; i < int(in.Count); i++ {
+		log.Println("streaming...")
+		resp := &pb.PingResponse{
+			Payload: []byte(`pong`),
+		}
+		if err := stream.Send(resp); err != nil {
+			return err
+		}
+	}
 	return nil
 }
