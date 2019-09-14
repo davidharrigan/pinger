@@ -16,6 +16,10 @@ import (
 	"github.com/davidharrigan/integration-test/testing/config"
 )
 
+func address() string {
+	return fmt.Sprintf("%s:%d", config.PingerConfig.Address, config.PingerConfig.Port)
+}
+
 func TestPinger(t *testing.T) {
 
 	type expectation struct {
@@ -41,8 +45,7 @@ func TestPinger(t *testing.T) {
 		t.Run(scenario, func(t *testing.T) {
 			assert := assert.New(t)
 
-			address := fmt.Sprintf("%s:%d", config.PingerConfig.Address, config.PingerConfig.Port)
-			conn, err := grpc.Dial(address, grpc.WithInsecure())
+			conn, err := grpc.Dial(address(), grpc.WithInsecure())
 			assert.Nil(err)
 			defer conn.Close()
 
@@ -91,10 +94,8 @@ func TestPingerStream(t *testing.T) {
 		t.Run(scenario, func(t *testing.T) {
 			assert := assert.New(t)
 
-			address := fmt.Sprintf("%s:%d", config.PingerConfig.Address, config.PingerConfig.Port)
-			conn, err := grpc.Dial(address, grpc.WithInsecure())
+			conn, err := grpc.Dial(address(), grpc.WithInsecure())
 			if !assert.Nil(err) {
-				return
 			}
 			defer conn.Close()
 

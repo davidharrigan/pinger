@@ -16,3 +16,6 @@ integration-local:
 .PHONY: integration
 integration:
 	go test -tags integration -v ./testing/integration/...
+
+bin/test:
+	go test -tags integration -c ./testing/integration/...

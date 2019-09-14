@@ -1,3 +1,5 @@
+// +build integration
+
 package pinger
 
 import (
@@ -9,7 +11,7 @@ import (
 	"github.com/davidharrigan/integration-test/testing/config"
 )
 
-var integrationLocal = flag.Bool("integration-local", false, "run integration tests")
+var integrationLocal = flag.Bool("integration-local", false, "spin up a local instance of pinger within the test")
 var pingerAddress = flag.String("pinger-address", "localhost", "pinger address")
 var pingerPort = flag.Int("pinger-port", 50051, "pinger port")
 
